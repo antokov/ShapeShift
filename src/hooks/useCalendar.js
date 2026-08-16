@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { API_BASE } from '../utils/apiBase.js';
 
-const API = '/api';
+const API = `${API_BASE}/api`;
 
 // Sunday=0 in JS, Monday=1...Saturday=6, Sunday=0
 const JS_DAY_TO_KEY = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];

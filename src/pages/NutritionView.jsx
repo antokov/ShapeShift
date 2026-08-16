@@ -3,6 +3,7 @@ import { useProfile } from '../hooks/useProfile.js';
 import { useNutrition } from '../hooks/useNutrition.js';
 import { generateId } from '../utils/uuid.js';
 import { ERNÄHRUNGSFORMEN, ALLERGENE, FOOD_CATEGORIES } from '../data/foodLibrary.js';
+import { API_BASE } from '../utils/apiBase.js';
 import './NutritionView.css';
 
 const MAHLZEITEN_OPTIONS = [3, 4, 5];
@@ -287,7 +288,7 @@ export default function NutritionView({ username = 'admin', calendarEvents = [] 
     setIsLoading(true);
     setError(null);
     try {
-      const res = await fetch('/api/nutrition/plan', {
+      const res = await fetch(`${API_BASE}/api/nutrition/plan`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ profile, nutritionSettings: settings, calendarEvents }),

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { generateId } from '../utils/uuid.js';
+import { API_BASE } from '../utils/apiBase.js';
 
-const API = '/api';
+const API = `${API_BASE}/api`;
 
 export function useRoutines(username = 'admin') {
   const [routines, setRoutines] = useState([]);

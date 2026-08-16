@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException, Request, status
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 from contextlib import asynccontextmanager
@@ -50,6 +51,17 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(title="FitnessApp API", lifespan=lifespan)
+
+# Frontend and backend run on separate Coolify domains; CORS_ORIGINS is a
+# comma-separated allowlist (e.g. "https://shapeshift.kovacevic.xyz").
+_cors_origins = [o.strip() for o in os.environ.get("CORS_ORIGINS", "").split(",") if o.strip()]
+if _cors_origins:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=_cors_origins,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
 
 def get_user_id(request: Request) -> str:

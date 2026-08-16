@@ -1,4 +1,5 @@
 import { getActiveUsername } from '../hooks/useAuth.js';
+import { API_BASE } from './apiBase.js';
 
 export const CLAUDE_PROMPT = `Ich nutze eine Fitness-App und möchte personalisierte Trainingsempfehlungen von dir.
 
@@ -70,7 +71,7 @@ export function downloadJson(payload, filename) {
 
 export async function fetchGarminHealth() {
   try {
-    const r = await fetch('/api/garmin/health');
+    const r = await fetch(`${API_BASE}/api/garmin/health`);
     if (!r.ok) return null;
     return r.json();
   } catch {
@@ -81,7 +82,7 @@ export async function fetchGarminHealth() {
 export async function fetchGarminHealthHistory(metrics = ['steps', 'restingHeartRate', 'bodyBattery', 'sleepDuration', 'averageStressLevel', 'intensityMinutes']) {
   const results = await Promise.allSettled(
     metrics.map((m) =>
-      fetch(`/api/garmin/health/history?metric=${m}&period=4w`).then((r) => (r.ok ? r.json() : null))
+      fetch(`${API_BASE}/api/garmin/health/history?metric=${m}&period=4w`).then((r) => (r.ok ? r.json() : null))
     )
   );
   const history = {};
@@ -94,7 +95,7 @@ export async function fetchGarminHealthHistory(metrics = ['steps', 'restingHeart
 
 export async function fetchGarminHRV() {
   try {
-    const r = await fetch('/api/garmin/hrv');
+    const r = await fetch(`${API_BASE}/api/garmin/hrv`);
     if (!r.ok) return null;
     const data = await r.json();
     return Object.keys(data).length > 0 ? data : null;

@@ -3,6 +3,7 @@ import { useProfile } from '../hooks/useProfile.js';
 import { useWeightLog } from '../hooks/useWeightLog.js';
 import { fetchGarminHealth, fetchGarminHealthHistory, fetchGarminHRV } from '../utils/exportData.js';
 import { generateId } from '../utils/uuid.js';
+import { API_BASE } from '../utils/apiBase.js';
 import './CoachView.css';
 
 const FOUR_WEEKS_MS = 28 * 24 * 60 * 60 * 1000;
@@ -189,7 +190,7 @@ export default function CoachView({ username = 'admin', workouts = [], routines 
     setError(null);
     try {
       const payload = await buildCoachPayload();
-      const endpoint = type === 'trainingsplan' ? '/api/coach/plan' : '/api/coach/report';
+      const endpoint = type === 'trainingsplan' ? `${API_BASE}/api/coach/plan` : `${API_BASE}/api/coach/report`;
       const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

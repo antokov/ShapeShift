@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE } from '../utils/apiBase.js';
 
 function useGarminFetch(url) {
   const [data, setData] = useState(null);
@@ -26,24 +27,24 @@ function useGarminFetch(url) {
 }
 
 export function useGarmin(limit = 20) {
-  const { data, loading, error, notConfigured } = useGarminFetch(`/api/garmin/activities?limit=${limit}`);
+  const { data, loading, error, notConfigured } = useGarminFetch(`${API_BASE}/api/garmin/activities?limit=${limit}`);
   return { activities: data ?? [], loading, error, notConfigured };
 }
 
 export function useGarminHealth(date) {
-  const url = date ? `/api/garmin/health?date=${date}` : '/api/garmin/health';
+  const url = date ? `${API_BASE}/api/garmin/health?date=${date}` : `${API_BASE}/api/garmin/health`;
   const { data, loading, error, notConfigured } = useGarminFetch(url);
   return { health: data, loading, error, notConfigured };
 }
 
 export function useGarminHistory(metric, period) {
-  const url = `/api/garmin/health/history?metric=${metric}&period=${period}`;
+  const url = `${API_BASE}/api/garmin/health/history?metric=${metric}&period=${period}`;
   const { data, loading, error, notConfigured } = useGarminFetch(url);
   return { history: data, loading, error, notConfigured };
 }
 
 export function useGarminHRV(date) {
-  const url = date ? `/api/garmin/hrv?date=${date}` : '/api/garmin/hrv';
+  const url = date ? `${API_BASE}/api/garmin/hrv?date=${date}` : `${API_BASE}/api/garmin/hrv`;
   const { data, loading, error, notConfigured } = useGarminFetch(url);
   return { hrv: data && Object.keys(data).length > 0 ? data : null, loading, error, notConfigured };
 }
@@ -58,7 +59,7 @@ export function useGarminActivityDetail(id) {
     setLoading(true);
     setError(null);
     setDetail(null);
-    fetch(`/api/garmin/activities/${id}`)
+    fetch(`${API_BASE}/api/garmin/activities/${id}`)
       .then((r) => {
         if (!r.ok) return r.json().then((b) => { throw new Error(b.detail || 'Fehler'); });
         return r.json();

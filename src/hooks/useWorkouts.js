@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { API_BASE } from '../utils/apiBase.js';
 
-const API = '/api';
+const API = `${API_BASE}/api`;
 
 function sortDesc(workouts) {
   return [...workouts].sort((a, b) => b.startedAt.localeCompare(a.startedAt));
