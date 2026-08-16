@@ -1,0 +1,691 @@
+.garmin-view {
+  padding: 40px 48px;
+  background: #f0f0f0;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.garmin-view__header {
+  margin-bottom: 24px;
+}
+
+.garmin-view__header h1 {
+  font-size: 28px;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+}
+
+.garmin-view__subtitle {
+  font-size: 13px;
+  color: #999;
+  margin: 0;
+}
+
+/* ─── Tabs ─────────────────────────────────────────────── */
+
+.garmin-view__tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.garmin-tab {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  color: #555;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.garmin-tab:hover {
+  border-color: #d0d0d0;
+}
+
+.garmin-tab--active {
+  background: #5c6bc0;
+  border-color: transparent;
+  color: #ffffff;
+}
+
+/* ─── Health KPI Grid ───────────────────────────────────── */
+
+.health-date-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.health-date-nav__btn {
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 1;
+  padding: 4px 10px;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  color: #555;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.health-date-nav__btn:hover:not(:disabled) {
+  border-color: #d0d0d0;
+}
+
+.health-date-nav__btn:disabled {
+  color: #ccc;
+  cursor: default;
+}
+
+.health-date-nav__label {
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+.health-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.health-kpi {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 0.15s ease;
+}
+
+.health-kpi__label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.health-kpi__value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.health-kpi__value {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.health-kpi__unit {
+  font-size: 14px;
+  font-weight: 400;
+  color: #888;
+}
+
+.health-kpi__sub {
+  font-size: 12px;
+  color: #bbb;
+  margin-top: 6px;
+}
+
+/* ─── Sleep Card ────────────────────────────────────────── */
+
+.sleep-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 760px;
+  margin-bottom: 12px;
+  margin-inline: auto;
+}
+
+.sleep-card__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.sleep-card__title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+}
+
+.sleep-card__total {
+  font-size: 22px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+
+.sleep-card__history-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 12px;
+  color: #5c6bc0;
+  cursor: pointer;
+  align-self: center;
+}
+
+.sleep-card__history-btn:hover {
+  text-decoration: underline;
+}
+
+.sleep-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #f0f0f0;
+  margin-bottom: 12px;
+}
+
+.sleep-bar__deep  { background: #5c6bc0; }
+.sleep-bar__rem   { background: #00bcd4; }
+.sleep-bar__light { background: #c5cae9; }
+.sleep-bar__awake { background: #ff9800; }
+
+.sleep-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.sleep-legend__item {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #555;
+}
+
+.sleep-legend__item::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.sleep-legend__item--deep::before  { background: #5c6bc0; }
+.sleep-legend__item--rem::before   { background: #00bcd4; }
+.sleep-legend__item--light::before { background: #c5cae9; }
+.sleep-legend__item--awake::before { background: #ff9800; }
+
+.garmin-view__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+/* Activity Card */
+.activity-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: border-color 0.15s ease;
+}
+
+.activity-card:hover {
+  border-color: #d0d0d0;
+}
+
+.activity-card__type-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.activity-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-card__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 6px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activity-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #888;
+}
+
+.activity-card__date {
+  color: #888;
+}
+
+.activity-card__type-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+/* Stat badges — same system as DesignConcept */
+.activity-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.activity-stat--duration {
+  background: rgba(0, 188, 212, 0.10);
+  color: #00bcd4;
+}
+
+.activity-stat--distance {
+  background: rgba(92, 107, 192, 0.10);
+  color: #5c6bc0;
+}
+
+.activity-stat--calories {
+  background: rgba(255, 92, 26, 0.08);
+  color: #ff5c1a;
+}
+
+.activity-stat--hr {
+  background: rgba(239, 68, 68, 0.08);
+  color: #ef4444;
+}
+
+/* Setup Hint */
+.garmin-view__setup-hint {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 520px;
+}
+
+.garmin-view__setup-hint h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 12px 0;
+}
+
+.garmin-view__setup-hint p {
+  font-size: 14px;
+  color: #555;
+  margin: 0 0 16px 0;
+  line-height: 1.6;
+}
+
+.garmin-view__setup-hint code {
+  display: block;
+  background: #f8f8f8;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #333;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  white-space: pre;
+  margin-bottom: 12px;
+}
+
+.garmin-view__setup-hint .hint-note {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+/* Error state */
+.garmin-view__error {
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 12px;
+  padding: 20px 24px;
+  color: #ef4444;
+  font-size: 14px;
+  max-width: 520px;
+}
+
+/* Empty state */
+.garmin-view__empty {
+  font-size: 14px;
+  color: #999;
+  padding: 24px 0;
+}
+
+/* ─── Clickable KPI ─────────────────────────────────────── */
+
+.health-kpi--clickable {
+  cursor: pointer;
+}
+
+.health-kpi--clickable:hover {
+  border-color: #d0d0d0;
+}
+
+.health-kpi--clickable:focus-visible {
+  outline: 2px solid #5c6bc0;
+  outline-offset: 2px;
+}
+
+/* ─── MetricDetail ──────────────────────────────────────── */
+
+.metric-detail {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.metric-detail__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.metric-detail__header h2 {
+  font-size: 22px;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* ─── Period pills ──────────────────────────────────────── */
+
+.metric-period-pills {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.period-pill {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  color: #555;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.period-pill:hover {
+  border-color: #d0d0d0;
+}
+
+.period-pill--active {
+  background: #5c6bc0;
+  border-color: transparent;
+  color: #ffffff;
+}
+
+/* ─── Metric chart ──────────────────────────────────────── */
+
+.metric-chart-wrap {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 20px;
+  overflow-x: auto;
+  margin-bottom: 12px;
+}
+
+.metric-chart-wrap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.metric-chart-hit {
+  cursor: pointer;
+}
+
+/* ─── Metric summary ────────────────────────────────────── */
+
+.metric-summary {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.metric-summary__stat {
+  flex: 1;
+  padding: 16px 20px;
+  border-right: 1px solid #e8e8e8;
+}
+
+.metric-summary__stat:last-child {
+  border-right: none;
+}
+
+.metric-summary__stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.metric-summary__stat-value {
+  font-size: 24px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+
+.metric-summary__stat-value span {
+  font-size: 13px;
+  font-weight: 400;
+  color: #888;
+  margin-left: 2px;
+}
+
+/* ─── HRV Card ──────────────────────────────────────────── */
+
+.hrv-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 760px;
+  margin-bottom: 12px;
+  margin-inline: auto;
+}
+
+.hrv-card__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hrv-card__title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+}
+
+.hrv-card__value {
+  font-size: 22px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+
+.hrv-card__sub {
+  font-size: 13px;
+  color: #888;
+  margin-top: 8px;
+}
+
+/* ─── Pace stat badge ───────────────────────────────────── */
+
+.activity-stat--pace {
+  background: rgba(76, 175, 80, 0.10);
+  color: #4caf50;
+}
+
+/* ─── Activity Detail View ──────────────────────────────── */
+
+.activity-detail {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.activity-detail__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.activity-detail__title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.activity-detail__type-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.activity-detail__name {
+  font-size: 22px;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activity-detail__date {
+  font-size: 13px;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.activity-detail__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.activity-detail__stat {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.activity-detail__stat-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.activity-detail__stat-value {
+  display: block;
+  font-size: 22px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+
+/* ─── Splits Table ──────────────────────────────────────── */
+
+.splits-section {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 4px;
+}
+
+.splits-section__title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+  margin: 0 0 14px 0;
+}
+
+.splits-table-wrap {
+  overflow-x: auto;
+}
+
+.splits-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.splits-table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #999;
+  padding: 0 12px 10px 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.splits-table td {
+  padding: 10px 12px 10px 0;
+  color: #444;
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.splits-table tr:last-child td {
+  border-bottom: none;
+}

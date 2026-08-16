@@ -1,0 +1,208 @@
+.routines-detail-content {
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+
+.routine-detail__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.routine-detail__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.routine-detail__title {
+  font-family: var(--font-body);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.routine-detail__description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* ─── Exercises Header ──────────────────────────────────── */
+
+.routine-detail__exercises-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+
+.routine-detail__exercise-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ─── Exercise Item ─────────────────────────────────────── */
+
+.exercise-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 16px;
+  border-radius: 8px;
+  background: var(--color-surface-3);
+  border: 1px solid var(--color-border-subtle);
+  transition: background 0.1s ease;
+}
+
+.exercise-item:hover {
+  background: var(--color-surface-2);
+}
+
+.exercise-item__index {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  color: #ccc;
+  min-width: 18px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.exercise-item__name {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.exercise-item__stats {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+/* ─── Stat Badges ───────────────────────────────────────── */
+
+.exercise-item__stat {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.exercise-item__stat--sets {
+  color: var(--color-text-dim);
+  background: var(--color-bg);
+}
+
+.exercise-item__stat--reps {
+  color: #5c6bc0;
+  background: rgba(92, 107, 192, 0.1);
+}
+
+.exercise-item__stat--duration {
+  color: #00bcd4;
+  background: rgba(0, 188, 212, 0.1);
+}
+
+.exercise-item__stat--cardio {
+  color: #00bcd4;
+  background: rgba(0, 188, 212, 0.1);
+}
+
+.exercise-item__stat-sep {
+  font-size: 12px;
+  color: #ccc;
+}
+
+/* ─── Exercise Description Toggle ──────────────────────── */
+
+.exercise-item--expandable {
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+
+.exercise-item__toggle {
+  font-size: 14px;
+  color: #ccc;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  line-height: 1;
+}
+
+.exercise-item__toggle--open {
+  transform: rotate(90deg);
+  color: #5c6bc0;
+}
+
+.exercise-item__desc {
+  width: 100%;
+  font-size: 13px;
+  color: #777;
+  line-height: 1.55;
+  margin: 4px 0 0 32px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ─── Expanded Exercise Detail ──────────────────────────── */
+
+.exercise-item__expanded {
+  width: 100%;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exercise-item__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.exercise-item__instructions {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.exercise-item__instructions li {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.55;
+}
+
+/* ─── Empty State ───────────────────────────────────────── */
+
+.routine-detail__empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  padding: 32px;
+  border: 1px dashed var(--color-border-strong);
+  border-radius: 8px;
+}

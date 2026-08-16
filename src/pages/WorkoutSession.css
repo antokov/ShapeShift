@@ -1,0 +1,759 @@
+.workout-session {
+  box-sizing: border-box;
+  padding: 40px 48px;
+  max-width: 900px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+@media (max-width: 600px) {
+  .workout-session {
+    padding: 24px 16px;
+  }
+}
+
+/* ─── Header ────────────────────────────────────────────── */
+
+.workout-session__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.workout-session__title {
+  flex: 1;
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.workout-session__timer {
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: #5c6bc0;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+/* ─── Pause Bar ─────────────────────────────────────────── */
+
+.workout-session__pause-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(92, 107, 192, 0.08);
+  border: 1px solid rgba(92, 107, 192, 0.2);
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 20px;
+}
+
+.workout-session__pause-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #5c6bc0;
+}
+
+.workout-session__pause-countdown {
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: #5c6bc0;
+  font-variant-numeric: tabular-nums;
+  flex: 1;
+}
+
+/* ─── Exercise List ─────────────────────────────────────── */
+
+.workout-session__exercises {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.workout-session__empty {
+  text-align: center;
+  padding: 32px;
+  color: #999;
+  font-size: 14px;
+  border: 1px dashed #d0d0d0;
+  border-radius: 8px;
+}
+
+/* ─── Exercise Card ─────────────────────────────────────── */
+
+.workout-ex {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Name + Rating row */
+.workout-ex__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.workout-ex__name {
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Rating */
+.workout-ex__rating {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.workout-ex__rating-btn {
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.workout-ex__rating-btn:hover {
+  border-color: #d0d0d0;
+  background: #f5f5f5;
+}
+
+.workout-ex__rating-btn--active {
+  border-color: #5c6bc0;
+  background: rgba(92, 107, 192, 0.1);
+}
+
+/* Inputs row */
+.workout-ex__inputs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.workout-ex__input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.workout-ex__input-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+}
+
+.workout-ex__input-with-unit {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.workout-ex__input {
+  width: 64px;
+  padding: 6px 8px;
+  font-size: 14px;
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  outline: none;
+  text-align: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.workout-ex__input:focus {
+  border-color: #5c6bc0;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.12);
+}
+
+.workout-ex__unit {
+  font-size: 12px;
+  color: #999;
+}
+
+/* Set adjust row */
+.workout-ex__sets-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.workout-ex__set-adjust {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1.5px solid #d8d8d8;
+  background: #fff;
+  color: #888;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  flex-shrink: 0;
+  line-height: 1;
+  padding: 0;
+}
+
+.workout-ex__set-adjust:hover:not(:disabled) {
+  border-color: #5c6bc0;
+  color: #5c6bc0;
+  background: rgba(92, 107, 192, 0.06);
+}
+
+.workout-ex__set-adjust:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Set buttons */
+.workout-ex__sets {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+/* ─── Set Button ────────────────────────────────────────── */
+
+.workout-ex__set-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1.5px solid #d8d8d8;
+  background: #ffffff;
+  color: #aaa;
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workout-ex__set-btn:hover {
+  border-color: #5c6bc0;
+  color: #5c6bc0;
+  background: rgba(92, 107, 192, 0.06);
+}
+
+.workout-ex__set-btn--done {
+  background: #5c6bc0;
+  border-color: #5c6bc0;
+  color: #ffffff;
+}
+
+.workout-ex__set-btn--done:hover {
+  background: #4a5ab0;
+  border-color: #4a5ab0;
+  color: #ffffff;
+}
+
+/* ─── Cardio Exercise Row ───────────────────────────────── */
+
+.workout-ex__cardio-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.workout-ex__cardio-duration {
+  font-size: 15px;
+  font-weight: 600;
+  color: #00bcd4;
+  min-width: 60px;
+}
+
+.workout-ex__cardio-done {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1.5px solid #d8d8d8;
+  background: #fff;
+  color: #888;
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.workout-ex__cardio-done:hover {
+  border-color: #00bcd4;
+  color: #00bcd4;
+  background: rgba(0, 188, 212, 0.06);
+}
+
+.workout-ex__cardio-done--active {
+  background: #00bcd4;
+  border-color: #00bcd4;
+  color: #fff;
+}
+
+.workout-ex__cardio-done--active:hover {
+  background: #00a8be;
+  border-color: #00a8be;
+  color: #fff;
+}
+
+/* ─── Guided Step Card ──────────────────────────────────── */
+
+.workout-step__card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 16px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .workout-step__card {
+    padding: 28px 20px;
+    gap: 20px;
+  }
+}
+
+.workout-step__card--pause {
+  background: rgba(92, 107, 192, 0.06);
+  border-color: rgba(92, 107, 192, 0.2);
+  align-items: center;
+  text-align: center;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.workout-step__ex-progress {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #999;
+}
+
+.workout-step__ex-name {
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  word-break: break-word;
+}
+
+@media (max-width: 600px) {
+  .workout-step__ex-name {
+    font-size: 28px;
+  }
+}
+
+.workout-step__ex-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.workout-step__instructions {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.workout-step__instructions li {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.55;
+}
+
+.workout-step__ex-desc {
+  font-size: 14px;
+  color: #888;
+  line-height: 1.55;
+  margin: 0;
+  margin-top: -12px;
+}
+
+.workout-step__set-info {
+  font-size: 18px;
+  color: #888;
+  font-weight: 400;
+  margin-top: -8px;
+}
+
+.workout-step__cardio-duration {
+  font-size: 28px;
+  font-weight: 300;
+  color: #00bcd4;
+  letter-spacing: -0.01em;
+}
+
+.workout-step__inputs {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px 24px;
+  background: #f7f7f7;
+  border-radius: 12px;
+}
+
+.workout-step__card .workout-ex__input {
+  width: 88px;
+  padding: 10px 12px;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+.workout-step__card .workout-ex__input-label {
+  font-size: 11px;
+}
+
+.workout-step__card .workout-ex__unit {
+  font-size: 14px;
+}
+
+.workout-step__cta {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 16px;
+  border-radius: 12px;
+  letter-spacing: 0.01em;
+  justify-content: center;
+}
+
+/* ─── Pause Phase ───────────────────────────────────────── */
+
+.workout-step__pause-label {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #5c6bc0;
+}
+
+.workout-step__pause-timer {
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 96px;
+  font-weight: 200;
+  color: #5c6bc0;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 600px) {
+  .workout-step__pause-timer {
+    font-size: 72px;
+  }
+}
+
+.workout-step__card--pause .btn {
+  min-width: 180px;
+}
+
+/* ─── Rate Phase ────────────────────────────────────────── */
+
+.workout-step__rate-exname {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.workout-step__rate-label {
+  font-size: 16px;
+  color: #888;
+  margin-top: -8px;
+}
+
+.workout-step__rate-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.workout-step__rate-btn {
+  width: 88px;
+  height: 88px;
+  border-radius: 16px;
+  border: 2px solid #e8e8e8;
+  background: #fff;
+  font-size: 40px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.workout-step__rate-btn:hover {
+  border-color: #d0d0d0;
+  background: #f5f5f5;
+}
+
+.workout-step__rate-btn--active {
+  border-color: #5c6bc0;
+  background: rgba(92, 107, 192, 0.1);
+}
+
+/* ─── Summary Phase ─────────────────────────────────────── */
+
+.workout-step__summary-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #1a1a1a;
+  letter-spacing: -0.01em;
+}
+
+.workout-step__summary-stats {
+  font-size: 16px;
+  color: #888;
+  margin-top: -8px;
+}
+
+/* ─── Next-Step Hint ────────────────────────────────────── */
+
+.workout-step__next {
+  font-size: 12px;
+  color: #aaa;
+  margin: 0;
+}
+
+/* ─── Progress Bar ──────────────────────────────────────── */
+
+.workout-progress {
+  width: 100%;
+  height: 6px;
+  background: #e8e8e8;
+  border-radius: 3px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.workout-progress__fill {
+  height: 100%;
+  background: #5c6bc0;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* ─── Session Notes ─────────────────────────────────────── */
+
+.workout-session__notes {
+  margin-bottom: 0;
+}
+
+.workout-session__notes-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.workout-session__notes-input {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  outline: none;
+  resize: vertical;
+  min-height: 60px;
+  box-sizing: border-box;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.workout-session__notes-input:focus {
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.15);
+}
+
+/* ─── Pre-Start Config Screen ───────────────────────────── */
+
+.workout-config {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.workout-config__hint {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+  margin: 0 0 12px 0;
+}
+
+.workout-config__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.workout-config__empty {
+  font-size: 14px;
+  color: #999;
+  padding: 16px 0;
+}
+
+.workout-config__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 12px 16px;
+}
+
+.workout-config__ex-name {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workout-config__sets-ctrl {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.workout-config__set-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1.5px solid #d8d8d8;
+  background: #ffffff;
+  color: #5c6bc0;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.workout-config__set-btn:hover:not(:disabled) {
+  border-color: #5c6bc0;
+  background: rgba(92, 107, 192, 0.08);
+}
+
+.workout-config__set-btn:disabled {
+  color: #d0d0d0;
+  cursor: not-allowed;
+}
+
+.workout-config__set-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  min-width: 52px;
+  text-align: center;
+}
+
+.workout-config__cardio-info {
+  font-size: 12px;
+  font-weight: 600;
+  color: #00bcd4;
+  background: rgba(0, 188, 212, 0.1);
+  border-radius: 6px;
+  padding: 4px 10px;
+  flex-shrink: 0;
+}
+
+.workout-config__start-btn {
+  width: 100%;
+}
+
+/* ─── Instructions Toggle ───────────────────────────────── */
+
+.workout-step__instructions-toggle {
+  align-self: flex-start;
+  font-size: 12px;
+  padding: 5px 12px;
+  color: #5c6bc0;
+  border-color: rgba(92, 107, 192, 0.3);
+}
+
+.workout-step__instructions-toggle:hover {
+  border-color: #5c6bc0;
+  background: rgba(92, 107, 192, 0.06);
+  color: #5c6bc0;
+}
+
+/* ─── Footer ────────────────────────────────────────────── */
+
+.workout-session__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.workout-session__progress {
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 13px;
+  color: #888;
+}

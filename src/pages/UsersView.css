@@ -1,0 +1,109 @@
+.users-page {
+  padding: 32px 40px 48px;
+}
+
+.users-page__header {
+  margin-bottom: 32px;
+}
+
+.users-page__title {
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.users-page__subtitle {
+  font-size: 14px;
+  color: #999;
+}
+
+.users-page__body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .users-page__body {
+    grid-template-columns: 1fr;
+  }
+  .users-page {
+    padding: 24px 16px 32px;
+  }
+}
+
+/* ─── Users List ─── */
+
+.users-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.users-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #f7f7f7;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+}
+
+.users-list__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.users-list__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.users-list__you {
+  font-weight: 400;
+  color: #5c6bc0;
+  font-size: 12px;
+}
+
+.users-list__date {
+  font-size: 12px;
+  color: #999;
+}
+
+.users-list__delete {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+/* ─── Feedback Messages ─── */
+
+.users-error {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #ef4444;
+  margin-bottom: 16px;
+}
+
+.users-success {
+  background: rgba(76, 175, 80, 0.08);
+  border: 1px solid rgba(76, 175, 80, 0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #4caf50;
+  margin-bottom: 16px;
+}

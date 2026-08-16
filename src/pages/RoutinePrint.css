@@ -1,0 +1,108 @@
+/* ─── Sichtbarkeit ──────────────────────────────────────── */
+
+/* Auf dem Bildschirm versteckt; nur im Druck sichtbar */
+.routine-print-only {
+  display: none;
+}
+
+/* ─── Print Layout ──────────────────────────────────────── */
+
+@media print {
+  .routine-print-only {
+    display: block;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 11pt;
+    color: #000;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ─── Header ──── */
+
+  .rp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid #000;
+    padding-bottom: 6pt;
+    margin-bottom: 16pt;
+  }
+
+  .rp-app-name {
+    font-size: 14pt;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .rp-date {
+    font-size: 10pt;
+    color: #444;
+  }
+
+  /* ─── Routine Block ──── */
+
+  .rp-routine {
+    margin-bottom: 20pt;
+    page-break-inside: avoid;
+  }
+
+  .rp-routine__name {
+    font-size: 13pt;
+    font-weight: 700;
+    margin-bottom: 2pt;
+    color: #000;
+  }
+
+  .rp-routine__desc {
+    font-size: 9pt;
+    color: #555;
+    margin-bottom: 6pt;
+    font-style: italic;
+  }
+
+  /* ─── Table ──── */
+
+  .rp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10pt;
+  }
+
+  .rp-th {
+    background: #000;
+    color: #fff;
+    text-align: left;
+    padding: 4pt 6pt;
+    font-weight: 600;
+    font-size: 9pt;
+    white-space: nowrap;
+  }
+
+  .rp-tr:nth-child(even) {
+    background: #f5f5f5;
+  }
+
+  .rp-td {
+    border: 1px solid #bbb;
+    padding: 5pt 6pt;
+    height: 22pt;
+    vertical-align: middle;
+    word-break: break-word;
+  }
+
+  .rp-empty {
+    color: #999;
+    font-style: italic;
+    text-align: center;
+  }
+
+  /* ─── Column Widths ──── */
+
+  .rp-col-nr    { width: 28pt; text-align: center; }
+  .rp-col-name  { width: auto; }
+  .rp-col-stats { width: 80pt; white-space: nowrap; }
+  .rp-col-weight { width: 68pt; }
+  .rp-col-rating { width: 52pt; text-align: center; }
+  .rp-col-notes  { width: 130pt; }
+}

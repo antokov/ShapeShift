@@ -1,0 +1,362 @@
+.routines-form-content {
+  max-width: 760px;
+}
+
+.routine-form__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.routine-form__header h2 {
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  flex: 1;
+}
+
+/* ─── Form Fields ───────────────────────────────────────── */
+
+.form-group {
+  margin-bottom: var(--space-4);
+}
+
+.form-group label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.4;
+  min-height: 44px;
+  transition: var(--transition-fast);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #c0c0c0;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+  border-color: var(--color-border-hover);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.15);
+}
+
+.form-group input.is-invalid,
+.form-group textarea.is-invalid {
+  border-color: #EF4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.field-error {
+  font-size: 0.875rem;
+  color: #EF4444;
+  margin-top: var(--space-1);
+}
+
+/* ─── Exercises ─────────────────────────────────────────── */
+
+.exercises-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--space-6) 0 var(--space-3);
+}
+
+.exercises-header h3 {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.exercises-empty {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+  padding: var(--space-6);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-3);
+}
+
+.exercise-row {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-2);
+  transition: var(--transition-fast);
+}
+
+.exercise-row:hover {
+  border-color: var(--color-border-strong);
+}
+
+.exercise-row__fields {
+  display: grid;
+  grid-template-columns: 1fr 72px 72px 72px auto;
+  gap: var(--space-2);
+  align-items: end;
+}
+
+.exercise-row__fields .form-group {
+  margin-bottom: 0;
+}
+
+/* Number inputs centered for sets/reps/duration */
+.exercise-row__fields input[type="number"] {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: var(--space-3) var(--space-2);
+}
+
+/* ─── Routine Type Toggle ───────────────────────────────── */
+
+.routine-type-toggle {
+  display: flex;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.routine-type-toggle button {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-strong);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.routine-type-toggle button:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text-secondary);
+}
+
+.routine-type-toggle button.active {
+  background: rgba(92, 107, 192, 0.1);
+  border-color: #5c6bc0;
+  color: #5c6bc0;
+}
+
+/* ─── Cardio Exercise Grid ──────────────────────────────── */
+
+.exercise-row__fields--cardio {
+  grid-template-columns: 1fr 80px auto;
+}
+
+/* ─── Exercise Type Toggle ──────────────────────────────── */
+
+.exercise-type-toggle {
+  display: flex;
+  gap: var(--space-1);
+  margin-bottom: var(--space-2);
+}
+
+.exercise-type-toggle button {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-strong);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: var(--transition-fast);
+}
+
+.exercise-type-toggle button:hover {
+  border-color: var(--color-border-hover);
+  color: var(--color-text-secondary);
+}
+
+.exercise-type-toggle button.active {
+  background: rgba(92, 107, 192, 0.1);
+  border-color: #5c6bc0;
+  color: #5c6bc0;
+}
+
+/* ─── Library Button in Label Row ──────────────────────── */
+
+.exercise-row__label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.exercise-row__label-row label {
+  margin-bottom: 0;
+}
+
+.exercise-row__library-btn {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5c6bc0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.exercise-row__library-btn:hover {
+  color: #3d4fa8;
+}
+
+/* ─── Exercise Picker ───────────────────────────────────── */
+
+.exercise-picker__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: transparent;
+}
+
+.exercise-picker {
+  position: relative;
+  z-index: 11;
+  margin-top: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 280px;
+}
+
+.exercise-picker__search-wrap {
+  padding: 8px;
+  border-bottom: 1px solid var(--color-border-subtle);
+  flex-shrink: 0;
+}
+
+.exercise-picker__search {
+  width: 100%;
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-text);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.exercise-picker__search:focus {
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.12);
+  background: var(--color-surface);
+}
+
+.exercise-picker__list {
+  overflow-y: auto;
+  flex: 1;
+  padding: 4px 0;
+}
+
+.exercise-picker__category {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #bbb;
+  padding: 10px 12px 4px;
+}
+
+.exercise-picker__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  padding: 7px 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: background 0.1s;
+}
+
+.exercise-picker__item-name {
+  font-size: 13px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.exercise-picker__item-desc {
+  font-size: 11px;
+  color: #aaa;
+  line-height: 1.4;
+  margin-top: 1px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.exercise-picker__item:hover,
+.exercise-picker__item:focus-visible {
+  background: rgba(92, 107, 192, 0.07);
+  color: var(--color-text);
+  outline: none;
+}
+
+.exercise-picker__empty {
+  padding: 16px 12px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* ─── Form Actions ──────────────────────────────────────── */
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}

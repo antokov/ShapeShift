@@ -1,0 +1,773 @@
+.journal-view {
+  box-sizing: border-box;
+  padding: 40px 48px;
+}
+
+/* ─── Header ───────────────────────────────────────────── */
+
+.journal-view__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.journal-view__header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.journal-view__title {
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.journal-view__count {
+  font-size: 13px;
+  color: #aaa;
+  margin: 0;
+}
+
+/* ─── Manual Entry Form ─────────────────────────────────── */
+
+.journal-form {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  max-width: 760px;
+}
+
+.journal-form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.journal-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.journal-form__field--full {
+  grid-column: 1 / -1;
+}
+
+.journal-form__label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+}
+
+.journal-form__input,
+.journal-form__select {
+  padding: 9px 12px;
+  font-size: 14px;
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.journal-form__input:focus,
+.journal-form__select:focus {
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.15);
+}
+
+.journal-form__textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+
+.journal-form__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* ─── Exercise Detail Rows ──────────────────────────────── */
+
+.journal-form__exercises {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.journal-ex-row {
+  background: #f7f7f7;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.journal-ex-row__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.journal-ex-row__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ─── Set Buttons ───────────────────────────────────────── */
+
+.journal-ex-row__sets-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.journal-ex-row__sets {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.journal-ex-row__set-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  border: 1.5px solid #d8d8d8;
+  background: #ffffff;
+  color: #aaa;
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.journal-ex-row__set-btn:hover {
+  border-color: #5c6bc0;
+  color: #5c6bc0;
+  background: rgba(92, 107, 192, 0.06);
+}
+
+.journal-ex-row__set-btn--done {
+  background: #5c6bc0;
+  border-color: #5c6bc0;
+  color: #ffffff;
+}
+
+.journal-ex-row__set-btn--done:hover {
+  background: #4a5ab0;
+  border-color: #4a5ab0;
+  color: #ffffff;
+}
+
+.journal-ex-row__set-adjust {
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  border: 1.5px solid #d8d8d8;
+  background: #fff;
+  color: #888;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: border-color 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.journal-ex-row__set-adjust:hover:not(:disabled) {
+  border-color: #5c6bc0;
+  color: #5c6bc0;
+}
+
+.journal-ex-row__set-adjust:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ─── Input Fields ──────────────────────────────────────── */
+
+.journal-ex-row__fields {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.journal-ex-row__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.journal-ex-row__input-unit {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.journal-ex-row__input {
+  width: 60px;
+  padding: 5px 7px;
+  font-size: 13px;
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  outline: none;
+  text-align: center;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.journal-ex-row__input:focus {
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 2px rgba(92, 107, 192, 0.12);
+}
+
+.journal-ex-row__unit {
+  font-size: 11px;
+  color: #999;
+}
+
+.journal-ex-row__rating {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.journal-ex-row__rating-btn {
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: 1.5px solid #e8e8e8;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.journal-ex-row__rating-btn:hover {
+  border-color: #d0d0d0;
+  background: #f0f0f0;
+}
+
+.journal-ex-row__rating-btn--active {
+  border-color: #5c6bc0;
+  background: rgba(92, 107, 192, 0.1);
+}
+
+/* ─── Empty State ───────────────────────────────────────── */
+
+.journal-empty {
+  text-align: center;
+  padding: 56px 32px;
+  color: #bbb;
+  font-size: 15px;
+  border: 1px dashed #e0e0e0;
+  border-radius: 12px;
+  line-height: 2;
+}
+
+.journal-empty__sub {
+  font-size: 13px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* ─── Split Body ────────────────────────────────────────── */
+
+.journal-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.journal-body__list {
+  flex: 1;
+  max-width: 760px;
+  min-width: 0;
+}
+
+.journal-body--has-panel .journal-body__list {
+  flex: 0 0 340px;
+  max-width: 340px;
+}
+
+/* ─── Detail Panel ──────────────────────────────────────── */
+
+.journal-panel {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 24px;
+  position: sticky;
+  top: 40px;
+  min-width: 0;
+}
+
+.journal-panel__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.journal-panel__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.journal-panel__name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+.journal-panel__date {
+  font-size: 12px;
+  color: #aaa;
+  font-weight: 400;
+}
+
+.journal-panel__top-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.journal-panel__close {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  color: #bbb;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s, background 0.15s;
+}
+
+.journal-panel__close:hover {
+  color: #555;
+  background: #f0f0f0;
+}
+
+.journal-panel__badges {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.journal-panel__body {
+  /* inherits from .journal-detail */
+}
+
+/* ─── Journal List ──────────────────────────────────────── */
+
+.journal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ─── Day Group ─────────────────────────────────────────── */
+
+.journal-day {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.journal-day__header {
+  font-size: 11px;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 10px 0 6px;
+  border-bottom: 1px solid #e8e8e8;
+  margin-bottom: 4px;
+  position: sticky;
+  top: 0;
+  background: #f0f0f0;
+  z-index: 10;
+}
+
+/* ─── Journal Entry ─────────────────────────────────────── */
+
+.journal-entry {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 14px 18px;
+  transition: border-color 0.15s;
+}
+
+.journal-entry:hover {
+  border-color: #d0d0d0;
+}
+
+.journal-entry--garmin {
+  border-left: 3px solid rgba(76, 175, 80, 0.5);
+  padding-left: 15px;
+}
+
+.journal-entry__body {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.journal-entry__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.journal-entry__name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a1a;
+  display: block;
+  margin-bottom: 7px;
+}
+
+.journal-entry__badges {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.journal-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.01em;
+}
+
+.journal-badge--duration {
+  background: rgba(0, 188, 212, 0.1);
+  color: #00bcd4;
+}
+
+.journal-badge--sets {
+  background: #f0f0f0;
+  color: #999;
+}
+
+.journal-badge--rating {
+  background: rgba(92, 107, 192, 0.08);
+  color: #5c6bc0;
+  font-size: 14px;
+  padding: 1px 7px;
+  border-radius: 20px;
+}
+
+.journal-badge--garmin {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+}
+
+.journal-badge--distance {
+  background: rgba(92, 107, 192, 0.08);
+  color: #5c6bc0;
+}
+
+.journal-entry__notes {
+  font-size: 13px;
+  color: #888;
+  font-style: italic;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* ─── Expanded State ────────────────────────────────────── */
+
+.journal-entry--expanded {
+  border-color: #5c6bc0;
+}
+
+.journal-entry--expanded.journal-entry--garmin {
+  border-left-color: #4caf50;
+  border-top-color: #5c6bc0;
+  border-right-color: #5c6bc0;
+  border-bottom-color: #5c6bc0;
+}
+
+/* ─── Detail View ───────────────────────────────────────── */
+
+.journal-detail {
+  border-top: 1px solid #f0f0f0;
+  margin-top: 12px;
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.journal-detail__exercise {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.journal-detail__ex-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.journal-detail__ex-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  flex: 1;
+}
+
+.journal-detail__ex-rating {
+  font-size: 15px;
+}
+
+.journal-detail__ex-body {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.journal-detail__sets {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+}
+
+.journal-detail__set-badge {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: #f0f0f0;
+  color: #ccc;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journal-detail__set-badge--done {
+  background: rgba(92, 107, 192, 0.12);
+  color: #5c6bc0;
+}
+
+.journal-detail__metrics {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.journal-detail__metric {
+  font-size: 12px;
+  color: #666;
+  background: #f5f5f5;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.journal-detail__empty {
+  font-size: 13px;
+  color: #bbb;
+  font-style: italic;
+  margin: 0;
+}
+
+.journal-detail__notes-full {
+  font-size: 13px;
+  color: #888;
+  font-style: italic;
+  line-height: 1.5;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 8px;
+  margin: 0;
+}
+
+/* ─── Entry Actions (Edit + Delete + Chevron) ───────────── */
+
+.journal-entry__actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.journal-entry:hover .journal-entry__actions,
+.journal-entry--expanded .journal-entry__actions {
+  opacity: 1;
+}
+
+.journal-entry__edit {
+  background: none;
+  border: none;
+  padding: 4px 6px;
+  cursor: pointer;
+  color: #5c6bc0;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: background 0.15s;
+}
+
+.journal-entry__edit:hover {
+  background: rgba(92, 107, 192, 0.1);
+}
+
+.journal-entry__delete {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: #ccc;
+  border-radius: 4px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.journal-entry__delete:hover {
+  color: #ef4444;
+}
+
+.journal-entry__chevron {
+  color: #ccc;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease, color 0.15s;
+}
+
+.journal-entry--expanded .journal-entry__chevron {
+  color: #5c6bc0;
+}
+
+/* ─── Form Edit Banner ──────────────────────────────────── */
+
+.journal-form__edit-banner {
+  font-size: 11px;
+  font-weight: 600;
+  color: #5c6bc0;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(92, 107, 192, 0.15);
+}
+
+.journal-form__save-error {
+  font-size: 13px;
+  color: #EF4444;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+/* ─── Journal Splits ─────────────────────────────────────── */
+
+.journal-splits {
+  margin-top: 16px;
+}
+
+.journal-splits__title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.journal-splits__wrap {
+  overflow-x: auto;
+}
+
+.journal-splits__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.journal-splits__table th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #bbb;
+  padding: 0 12px 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.journal-splits__table td {
+  padding: 8px 12px 8px 0;
+  color: #555;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+.journal-splits__table tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 600px) {
+  .journal-view {
+    padding: 24px 16px;
+  }
+
+  .journal-form__grid {
+    grid-template-columns: 1fr;
+  }
+}

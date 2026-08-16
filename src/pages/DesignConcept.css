@@ -1,0 +1,678 @@
+.dc {
+  background: #f0f0f0;
+  min-height: 100%;
+  padding: 40px 48px;
+  font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+  color: #1a1a1a;
+}
+
+/* ─── Page Header ───────────────────────────────────────── */
+
+.dc-page-header {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dc-breadcrumb {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #5c6bc0;
+  margin-bottom: 8px;
+}
+
+.dc-page-title {
+  font-size: 32px;
+  font-weight: 300;
+  color: #1a1a1a;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.dc-page-subtitle {
+  font-size: 14px;
+  color: #777;
+  max-width: 540px;
+  line-height: 1.6;
+}
+
+/* ─── Section ───────────────────────────────────────────── */
+
+.dc-section {
+  margin-bottom: 48px;
+}
+
+.dc-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.dc-section-desc {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.dc-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+/* ─── Divider ───────────────────────────────────────────── */
+
+.dc-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 16px;
+}
+
+.dc-divider::before,
+.dc-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #efefef;
+}
+
+.dc-divider span {
+  font-size: 11px;
+  color: #bbb;
+  white-space: nowrap;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Typography Demo ───────────────────────────────────── */
+
+.dc-typo-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 200px;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.dc-typo-row:last-child {
+  border-bottom: none;
+}
+
+.dc-typo-label {
+  font-size: 11px;
+  color: #aaa;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.dc-typo-meta {
+  font-size: 11px;
+  color: #ccc;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.dc-t-page { font-size: 28px; font-weight: 300; color: #1a1a1a; letter-spacing: -0.02em; }
+.dc-t-section { font-size: 18px; font-weight: 600; color: #1a1a1a; }
+.dc-t-card { font-size: 15px; font-weight: 600; color: #1a1a1a; }
+.dc-t-body { font-size: 14px; font-weight: 400; color: #444; line-height: 1.5; }
+.dc-t-meta { font-size: 12px; color: #888; }
+.dc-t-tag { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #999; }
+
+/* ─── Routine Cards (Grid) ──────────────────────────────── */
+
+.dc-concept-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.dc-routine-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 18px 20px 16px;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.dc-routine-card:hover {
+  transform: translateY(-2px);
+  border-color: #d8d8d8;
+}
+
+.dc-routine-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.dc-routine-card__tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+.dc-routine-card__duration {
+  font-size: 11px;
+  color: #bbb;
+}
+
+.dc-routine-card__name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.dc-routine-card__meta {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+.dc-routine-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ─── Routine Row (List) ────────────────────────────────── */
+
+.dc-routine-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+}
+
+.dc-routine-row--border {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.dc-routine-row__left {
+  flex: 1;
+  min-width: 0;
+}
+
+.dc-routine-row__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.dc-routine-row__meta {
+  font-size: 12px;
+  color: #999;
+}
+
+.dc-routine-row__tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.dc-routine-row__actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* ─── Exercise List ─────────────────────────────────────── */
+
+.dc-exercises-header {
+  margin-bottom: 12px;
+}
+
+.dc-exercises-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #aaa;
+}
+
+.dc-exercise-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dc-exercise-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 16px;
+  border-radius: 8px;
+  background: #fafafa;
+  border: 1px solid #f0f0f0;
+  transition: background 0.1s;
+}
+
+.dc-exercise-item:hover {
+  background: #f5f5f5;
+}
+
+.dc-exercise-item__idx {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ccc;
+  min-width: 18px;
+  text-align: right;
+}
+
+.dc-exercise-item__name {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.dc-exercise-item__stats {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dc-stat {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+
+.dc-stat--sets {
+  color: #888;
+  background: #f0f0f0;
+}
+
+.dc-stat--reps {
+  color: #5c6bc0;
+  background: rgba(92, 107, 192, 0.1);
+}
+
+.dc-stat--duration {
+  color: #00bcd4;
+  background: rgba(0, 188, 212, 0.1);
+}
+
+.dc-stat-sep {
+  font-size: 12px;
+  color: #ccc;
+}
+
+/* ─── KPI Grid ──────────────────────────────────────────── */
+
+.dc-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.dc-kpi {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 18px 16px;
+}
+
+.dc-kpi__value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.dc-kpi__unit {
+  font-size: 14px;
+  font-weight: 400;
+  color: #aaa;
+  margin-left: 3px;
+}
+
+.dc-kpi__label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #aaa;
+  font-weight: 600;
+}
+
+.dc-kpi__trend {
+  font-size: 11px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.dc-kpi__trend--up {
+  color: #4caf50;
+}
+
+/* ─── Pills ─────────────────────────────────────────────── */
+
+.dc-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.dc-pill--outlined {
+  background: transparent !important;
+}
+
+/* ─── Empty State ───────────────────────────────────────── */
+
+.dc-empty-state {
+  text-align: center;
+  padding: 48px 32px;
+}
+
+.dc-empty-state__icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.dc-empty-state__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.dc-empty-state__body {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* ─── Form Demo ─────────────────────────────────────────── */
+
+.dc-form-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dc-field__label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #999;
+}
+
+.dc-field__input {
+  padding: 10px 14px;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #1a1a1a;
+  background: #fff;
+  outline: none;
+}
+
+.dc-field__input--focus {
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.15);
+}
+
+.dc-field__input--error {
+  border-color: #EF4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.dc-field__input--center {
+  text-align: center;
+  font-weight: 600;
+}
+
+.dc-field__hint {
+  font-size: 11px;
+  color: #5c6bc0;
+}
+
+.dc-field__error {
+  font-size: 12px;
+  color: #EF4444;
+}
+
+/* ─── Button System Demo ────────────────────────────────── */
+
+.dc-btn-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.dc-btn-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.dc-btn-desc {
+  font-size: 11px;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+.dc-btn-primary {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #FF5C1A, #FF8C42);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 0 20px rgba(255, 92, 26, 0.3);
+}
+
+.dc-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 28px rgba(255, 92, 26, 0.45);
+}
+
+.dc-btn-secondary {
+  padding: 10px 20px;
+  background: #fff;
+  color: #333;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.dc-btn-secondary:hover {
+  background: #f5f5f5;
+  border-color: #bbb;
+}
+
+.dc-btn-ghost-demo {
+  padding: 10px 16px;
+  background: transparent;
+  color: #666;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.dc-btn-ghost-demo:hover {
+  background: #eee;
+  color: #1a1a1a;
+}
+
+.dc-btn-danger-demo {
+  padding: 10px 20px;
+  background: rgba(239, 68, 68, 0.1);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dc-btn-danger-demo:hover {
+  background: #EF4444;
+  color: #fff;
+  border-color: #EF4444;
+}
+
+/* Inline ghost button */
+.dc-btn-ghost {
+  padding: 6px 12px;
+  background: transparent;
+  color: #5c6bc0;
+  border: 1px solid #d0d4ee;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.dc-btn-ghost:hover {
+  background: rgba(92, 107, 192, 0.08);
+}
+
+.dc-btn-ghost--sm {
+  padding: 5px 10px;
+  font-size: 12px;
+  color: #666;
+  border-color: #ddd;
+}
+
+.dc-btn-ghost--sm:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.dc-btn-icon {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid #e8e8e8;
+  border-radius: 6px;
+  color: #999;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.dc-btn-icon:hover {
+  background: #f5f5f5;
+  color: #555;
+}
+
+.dc-btn-danger-sm {
+  padding: 5px 10px;
+  background: rgba(239, 68, 68, 0.07);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* ─── Spacing Demo ──────────────────────────────────────── */
+
+.dc-spacing-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dc-spacing-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dc-spacing-bar {
+  height: 20px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.dc-spacing-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #5c6bc0;
+  min-width: 36px;
+}
+
+.dc-spacing-use {
+  font-size: 12px;
+  color: #999;
+}
+
+/* ─── Color Grid ────────────────────────────────────────── */
+
+.dc-color-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.dc-color-swatch__block {
+  height: 52px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.dc-color-swatch__name {
+  font-size: 11px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 2px;
+}
+
+.dc-color-swatch__hex {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #aaa;
+}

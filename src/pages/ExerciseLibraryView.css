@@ -1,0 +1,342 @@
+.exercise-library {
+  padding: 32px 40px;
+}
+
+.exercise-library__header {
+  margin-bottom: 20px;
+}
+
+.exercise-library__title {
+  font-size: 28px;
+  font-weight: 300;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+}
+
+.exercise-library__subtitle {
+  font-size: 14px;
+  color: #999;
+  margin: 0;
+}
+
+/* ── Compact single-line filter bar ── */
+
+.exercise-library__filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.exercise-library__search {
+  flex: 1 1 180px;
+  min-width: 140px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #1a1a1a;
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  outline: none;
+  font-family: inherit;
+}
+
+.exercise-library__search:focus {
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.15);
+}
+
+.exercise-library__select {
+  flex: 0 0 auto;
+  padding: 8px 32px 8px 11px;
+  font-size: 13px;
+  color: #1a1a1a;
+  background: #ffffff;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  cursor: pointer;
+  font-family: inherit;
+  outline: none;
+  max-width: 160px;
+}
+
+.exercise-library__select:focus {
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 3px rgba(92, 107, 192, 0.15);
+}
+
+.exercise-library__select option {
+  font-size: 13px;
+}
+
+.exercise-library__result-count {
+  font-size: 13px;
+  color: #999;
+  white-space: nowrap;
+  margin-left: 4px;
+}
+
+/* ── Error / Empty ── */
+
+.exercise-library__empty {
+  font-size: 14px;
+  color: #999;
+  padding: 48px 0;
+  text-align: center;
+}
+
+.exercise-library__error {
+  font-size: 14px;
+  color: #ef4444;
+  padding: 16px 0;
+}
+
+.exercise-library__load-more {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 48px;
+}
+
+/* ── Exercise Grid ── */
+
+.exercise-library__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+/* ── Exercise Card ── */
+
+.exercise-card {
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  user-select: none;
+}
+
+.exercise-card:hover {
+  border-color: #d0d0d0;
+}
+
+.exercise-card:focus {
+  outline: 2px solid #5c6bc0;
+  outline-offset: 2px;
+}
+
+/* Card thumbnail */
+
+.exercise-card__thumb {
+  height: 155px;
+  overflow: hidden;
+  background: #f4f4f4;
+  position: relative;
+}
+
+.exercise-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.exercise-card__thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+}
+
+.exercise-card__body {
+  padding: 12px 14px;
+}
+
+.exercise-card__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.exercise-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.exercise-card__badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 7px;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+
+.exercise-card__badge--category {
+  background: #f0f0f0;
+  color: #555;
+}
+
+.exercise-card__badge--muscle {
+  background: rgba(92, 107, 192, 0.10);
+  color: #5c6bc0;
+}
+
+.exercise-card__badge--equipment {
+  background: rgba(0, 188, 212, 0.10);
+  color: #00bcd4;
+}
+
+.exercise-card__badge--secondary {
+  background: #f0f0f0;
+  color: #888;
+}
+
+.exercise-card__badge--level-beginner {
+  background: rgba(76, 175, 80, 0.12);
+  color: #4caf50;
+}
+
+.exercise-card__badge--level-intermediate {
+  background: rgba(255, 152, 0, 0.12);
+  color: #f57c00;
+}
+
+.exercise-card__badge--level-expert {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+
+/* ── Exercise Modal ── */
+
+.exercise-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.exercise-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+}
+
+.exercise-modal__box {
+  position: relative;
+  background: #ffffff;
+  border-radius: 12px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.exercise-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  font-size: 20px;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e8e8e8;
+  cursor: pointer;
+  color: #555;
+}
+
+.exercise-modal__close:hover {
+  background: #f4f4f4;
+  color: #1a1a1a;
+}
+
+.exercise-modal__img {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+.exercise-modal__img-placeholder {
+  width: 100%;
+  height: 160px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px 12px 0 0;
+}
+
+.exercise-modal__content {
+  padding: 20px 24px 24px;
+}
+
+.exercise-modal__name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 12px;
+  padding-right: 32px;
+}
+
+.exercise-modal__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.exercise-modal__divider {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: 0 0 16px;
+}
+
+.exercise-modal__instructions {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exercise-modal__instructions li {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.55;
+}
+
+.exercise-modal__no-instructions {
+  font-size: 14px;
+  color: #999;
+  margin: 0;
+}
